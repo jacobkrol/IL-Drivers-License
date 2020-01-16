@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>IL Driver's License Calculator</title>
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body>
+        <fieldset><legend>Enter demographics</legend>
+            <fieldset><legend>Input</legend>
+                <label>First Name</label>
+                <input id="input-first-name" type="text" />
+                <label>Middle Initial</label>
+                <input id="input-middle-initial" type="text" />
+                <label>Last Name</label>
+                <input id="input-last-name" type="text" />
+                <label>Birthdate</label>
+                <input id="input-dob" type="date" min="1900-01-01" max="2000-01-01" />
+                <script type="text/javascript">
+                    var today = new Date();
+                    var dd = today.getDate();
+                    var mm = today.getMonth()+1; //January is 0!
+                    var yyyy = today.getFullYear();
+                    dd = dd<10 ? '0'+dd : dd;
+                    mm = mm<10 ? '0'+mm : mm;
+                    today = yyyy+'-'+mm+'-'+dd;
+                    document.getElementById("input-dob").setAttribute("max", today);
+                </script>
+                <input id="input-male" type="radio" value="0" /> Male
+                <input id="input-female" type="radio" value="600" /> Female
+                <input type="button" value="Calculate" onclick="calculate_license()" />
+            </fieldset>
+            <fieldset><legend>Output</legend>
+                <p id="output-license"></p>
+        </fieldset>
+    </body>
+</html>
